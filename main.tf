@@ -55,7 +55,7 @@ resource openstack_networking_port_v2 manager {
   network_id         = openstack_networking_network_v2.internal.id
   admin_state_up     = true
   region             = var.deploy_region
-  security_group_ids = concat(openstack_compute_secgroup_v2.admin.id, var.security_group_ids)
+  security_group_ids = concat([openstack_compute_secgroup_v2.admin.id], var.security_group_ids)
 
   fixed_ip {
     subnet_id = openstack_networking_subnet_v2.internal.id
